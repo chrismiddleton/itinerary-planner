@@ -46,7 +46,6 @@ function getPlacesToGo () {
 }
 
 function getPlaceByName(name) {
-	// TODO: inefficient
 	return getPlacesToGo()[name];
 }
 
@@ -149,8 +148,11 @@ function nextPlace(placeNames) {
 
 function planTravel(origin, destination) {
 	if (!(destination instanceof Spot)) {
-		// TODO: Assuming it takes 3 hours for now
-		var travelDuration = 1000 * 60 * 60 * 3;
+		var milesBetween = kmToMi(coordsToKm(origin.place.coords, destination.coords));
+		// TODO: assuming 50 mph by car
+		var averageMph = 50;
+		var travelHours = milesBetween / averageMph;
+		var travelDuration = travelHours * 1000 * 60 * 60;
 		var destinationArrivalTime = origin.time + travelDuration;
 		destination = new Spot(destination, destinationArrivalTime);
 	}
