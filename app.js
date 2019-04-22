@@ -73,15 +73,20 @@ function averageSpeed() {
 	return 50;
 }
 
+function degToRad(deg) {
+	return deg * (Math.PI / 180);
+}
+
 // https://www.movable-type.co.uk/scripts/latlong.html
 function coordsToKm(coords1, coords2) {	
-	var lat1 = coords1[0], lon2 = coords1[1];
+	var lat1 = coords1[0], lon1 = coords1[1];
 	var lat2 = coords2[0], lon2 = coords2[1];
-	var R = 6371e3; // metres
-	var φ1 = lat1.toRadians();
-	var φ2 = lat2.toRadians();
-	var Δφ = (lat2-lat1).toRadians();
-	var Δλ = (lon2-lon1).toRadians();
+	// in km
+	var R = 6371;
+	var φ1 = degToRad(lat1);
+	var φ2 = degToRad(lat2);
+	var Δφ = degToRad(lat2 - lat1);
+	var Δλ = degToRad(lon2 - lon1);
 
 	var a = Math.sin(Δφ/2) * Math.sin(Δφ/2) +
 			Math.cos(φ1) * Math.cos(φ2) *
