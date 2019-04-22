@@ -27,7 +27,10 @@ var placesToGo = {
 	'Cardiff': {coords: [51.5023268, -3.27509]},
 	'Cambridge, UK': {coords: [52.1989266, 0.0499472]},
 	'Brighton, UK': {coords: [50.8375054, -0.1762297]},
-	'Newcastle upon Tyne': {coords: [55.0024886, -1.7969269]}
+	'Newcastle upon Tyne': {coords: [55.0024886, -1.7969269]},
+	'York, UK': {coords: [53.958677, -1.1508031]},
+	'Bristol, UK': {coords: [51.468619, -2.731145]},
+	'Cotswolds AONB': {coords: [51.7688201, -2.1265194]}
 };
 
 function getPlacesToGo () {
